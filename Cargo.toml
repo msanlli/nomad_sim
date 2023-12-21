@@ -1,5 +1,5 @@
 [package]
-name = "nomadSim"
+name = "nomad_sim"
 version = "0.1.0"
 edition = "2021"
 
