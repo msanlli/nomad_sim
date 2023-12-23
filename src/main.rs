@@ -4,7 +4,7 @@ fn main() {
     let mut option: String = String::new();
 
     let version_txt: &str = {
-        "NomadSim v0.0d\n@msanlli - 2023\n\n--------------------\n\nWelcome \
+        "NomadSim v0.1.0\n@msanlli - 2023\n\n--------------------\n\nWelcome \
         to NomadSim!\n\nChoose an option:\n1. New Game\n2. Load Game\n"
     };
 
@@ -28,8 +28,6 @@ fn main() {
 
         println!("{}", tutorial_intro_txt)
     } else if option == "2" {
-        println!("ERR_1: not implemented")
+        println!("ERR_0: not implemented")
     }
-
-    
 }
