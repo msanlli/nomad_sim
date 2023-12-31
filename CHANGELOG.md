@@ -6,3 +6,6 @@ The first number symbolises the major version, the second the release, the third
   - v0.0.0
     - Add initial story
     - Add save handling
+  - v0.1.0
+    - Add opening options
+    - Add keydown detection
