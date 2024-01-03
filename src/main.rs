@@ -1,6 +1,7 @@
-use std::{io, time::Duration, thread};
-use device_query::{DeviceQuery, DeviceState, Keycode};
+use std::{io, thread, time::Duration};
+
 use clearscreen;
+use device_query::{DeviceQuery, DeviceState, Keycode};
 
 const STDIN: io::Stdin = io::stdin();
 const INPUT: &mut String = &mut String::new();
@@ -26,14 +27,15 @@ fn main() {
                 option = num;
                 if option == 1 {
                     new_game()
-                } else if option == 2 {
-
-                } else {
+                } else if option == 2 {} else {
                     println!("ERR_option_not_found");
-                    continue
+                    continue;
                 };
-            },
-            Err(_) => {println!("ERR_reading_line"); continue;},
+            }
+            Err(_) => {
+                println!("ERR_reading_line");
+                continue;
+            }
         };
     };
 }
@@ -50,17 +52,20 @@ fn new_game() {
 
     loop {
         let keys: Vec<Keycode> = DEVICE_STATE.get_keys();
-        if !keys.is_empty() { new_save(); break; };
+        if !keys.is_empty() {
+            new_save();
+            break;
+        };
     };
 
-   /*
-   for client_file, fleet_file = new_save(){
-        let mut save = Save {
-            client: client_file,
-            fleet: fleet_file,
-        };
-    }
-    */
+    /*
+    for client_file, fleet_file = new_save(){
+         let mut save = Save {
+             client: client_file,
+             fleet: fleet_file,
+         };
+     }
+     */
 }
 
 fn new_save() { // -> (csv file, csv file)
@@ -73,12 +78,12 @@ fn new_save() { // -> (csv file, csv file)
             Ok(str) => {
                 let pilot_handle = str;
                 // TODO! Initialise client.csv
-                break
-            },
+                break;
+            }
             Err(_) => {
                 println!("ERR_reading_line");
-                continue
-            },
+                continue;
+            }
         };
     };
 
@@ -94,12 +99,12 @@ fn new_save() { // -> (csv file, csv file)
             Ok(num) => {
                 let option: u8 = num;
                 // TODO! Configure client and fleet
-                break
-            },
+                break;
+            }
             Err(_) => {
                 println!("ERR_reading_line");
-                continue
-            },
+                continue;
+            }
         };
     };
 }
