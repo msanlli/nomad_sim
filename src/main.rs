@@ -16,8 +16,7 @@ fn main() {
     2. Load Game\n\n>>> ");
 
     loop {
-        let input = stdin().read_line(INPUT).expect("ERR_reading_line");
-        match input.trim().parse() {
+        match input().trim().parse() {
             Ok(num) => {
                 option = num;
                 if option == 1 {
@@ -35,4 +34,7 @@ fn main() {
     };
 }
 
-
+fn input() -> usize {
+    let input = stdin().read_line(INPUT).expect("ERR_reading_line");
+    input
+}
