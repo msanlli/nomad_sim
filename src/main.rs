@@ -1,5 +1,5 @@
 mod menu;
-mod structs;
+pub mod structs;
 
 use std::io::stdin;
 
@@ -12,8 +12,8 @@ struct Game {
 fn main() {
     let mut option: u8;
 
-    println!("NomadSim v0.2.0\n@msanlli - 2023\n--------------------\n\nWelcome to NomadSim!\n\n1. New Game\n\
-    2. Load Game\n\n>>> ");
+    println!("NomadSim v0.2.0\n@msanlli - 2023\n--------------------\n\nWelcome to NomadSim!\n\n\
+    1. New Game\n2. Load Game\n\n>>> ");
 
     loop {
         match input().trim().parse() {

@@ -14,3 +14,6 @@ The first number symbolises the major version, the second the release, the third
     - v0.1.1
       - Add manifesto
       - Split code in functions
+    - v0.1.2
+      - Add save handling
+      - Add load handling
