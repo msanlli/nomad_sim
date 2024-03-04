@@ -1,5 +1,4 @@
 use std::io::stdin;
-use std::ptr::null;
 use std::thread::sleep;
 use std::time::Duration;
 use clearscreen::clear;
@@ -63,21 +62,17 @@ fn new_save() { // -> (csv file, csv file)
     aircraft will be a Cessna 208B and your\n    initial debt is none, you'll even have 100.000€ \
     in your account!\n"); // TODO! Create more modes
 
-    let save = loop {
+    loop {
         let input = stdin().read_line(INPUT).expect("ERR_reading_line");
         match input.trim().parse() {
             Ok(num) => {
                 let option: u8 = num;
                 if option == 1 {
-                    let save = Save {
-                        name: pilot_handle,
-                        currency: 100000,
-                        difficulty: 1,
-                        flight_time: 0,
-                        fleet: ("{:s}_fleet.csv", pilot_handle),
-                        dev: false,
-                    };
-                    break save;
+                    let wtr = csv::Writer::from.path("{:?}.csv", pilot_handle);
+
+                    wtr.write_record(&[
+                        pilot_handle, "100000", "1", "0", "false"
+                    ]).expect("ERR_writing_csv");
                 };
                 // Other difficulties
             }
